@@ -47,7 +47,10 @@ export function SignupForm({ className, ...props }) {
 
     const onSubmit = (values) => {
         startTransition(() => {
-            signup(values)
+            const formData = new FormData()
+            formData.append('email', values.email)
+            formData.append('password', values.password)
+            signup(formData)
         })
     }
 
