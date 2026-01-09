@@ -46,7 +46,10 @@ export function LoginForm({ className, ...props }) {
 
   const onLogin = (values) => {
     startTransition(() => {
-      login(values)
+      const formData = new FormData()
+      formData.append('email', values.email)
+      formData.append('password', values.password)
+      login(formData)
     })
   }
 
